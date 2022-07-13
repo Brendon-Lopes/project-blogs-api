@@ -5,10 +5,23 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    displayName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    image: DataTypes.STRING,
+    displayName: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      unique: true,
+    },
+    password: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    image: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
   });
 
   return User;
