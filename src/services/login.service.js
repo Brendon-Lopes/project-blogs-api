@@ -2,7 +2,7 @@ const { User } = require('../database/models');
 const httpStatusCodes = require('../helpers/httpStatusCodes');
 const jwt = require('../helpers/auth');
 
-const login = async (email, password) => {
+const signIn = async ({ email, password }) => {
   const user = await User.findOne({
     where: {
       email,
@@ -22,5 +22,5 @@ const login = async (email, password) => {
 };
 
 module.exports = {
-  login,
+  signIn,
 };
