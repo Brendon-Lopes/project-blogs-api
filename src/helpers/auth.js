@@ -5,8 +5,8 @@ const httpStatusCodes = require('./httpStatusCodes');
 
 const secret = process.env.JWT_SECRET;
 
-const createToken = (user) => {
-  const token = jwt.sign({ data: user }, secret, { algorithm: 'HS256' });
+const createToken = (email) => {
+  const token = jwt.sign({ data: email }, secret, { algorithm: 'HS256' });
   return token;
 };
 
