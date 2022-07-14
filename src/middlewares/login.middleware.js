@@ -1,5 +1,5 @@
 const httpStatusCodes = require('../helpers/httpStatusCodes');
-const loginDataSchema = require('../schemas/loginDataSchema');
+const { loginDataSchema } = require('../schemas');
 
 const validateLogin = (req, res, next) => {
   const userData = req.body;
