@@ -10,7 +10,7 @@ const create = async ({ displayName, email, password, image }) => {
 
   if (user !== null) {
     const error = new Error('User already registered');
-    error.status = httpStatusCodes.BAD_REQUEST;
+    error.status = httpStatusCodes.CONFLICT;
     throw error;
   }
 
