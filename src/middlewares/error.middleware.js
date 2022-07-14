@@ -5,7 +5,6 @@ const errorHandler = (error, _req, res) => {
 
   if (!status) return res.status(httpStatusCodes.INTERNAL_SERVER).send();
 
-  console.log('chegou aqui');
   return res.status(status).json({ message });
 };
 
