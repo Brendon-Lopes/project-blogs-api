@@ -1,12 +1,12 @@
 const { User } = require('../database/models');
 const httpStatusCodes = require('../helpers/httpStatusCodes');
+const passwordHelper = require('../helpers/password');
 const jwt = require('../helpers/auth');
 
 const signIn = async ({ email, password }) => {
   const user = await User.findOne({
     where: {
       email,
-      password,
     },
   });
 
@@ -15,6 +15,8 @@ const signIn = async ({ email, password }) => {
     error.status = httpStatusCodes.BAD_REQUEST;
     throw error;
   }
+
+  passwordHelper.check(password, user.password);
 
   const token = jwt.createToken(email);
 
