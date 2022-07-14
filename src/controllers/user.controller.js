@@ -25,7 +25,22 @@ const getAll = async (req, res) => {
   }
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const userById = await user.getById(id);
+
+    return res.status(httpStatusCodes.OK).json(userById);
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
+  getById,
 };
