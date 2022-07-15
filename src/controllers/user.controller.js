@@ -9,7 +9,7 @@ const create = async (req, res) => {
 
     return res.status(httpStatusCodes.CREATED).json({ token });
   } catch ({ status, message }) {
-    return res.status(status).json({ message });
+    return res.status(status || httpStatusCodes.INTERNAL_SERVER).json({ message });
   }
 };
 
