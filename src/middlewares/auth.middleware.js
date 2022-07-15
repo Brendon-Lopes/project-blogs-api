@@ -11,7 +11,7 @@ const validateToken = (req, res, next) => {
   try {
     const data = jwt.validateToken(authorization);
 
-    req.email = data;
+    req.data = data;
 
     next();
   } catch ({ status, message }) {
