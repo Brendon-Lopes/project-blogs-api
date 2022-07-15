@@ -18,7 +18,7 @@ const signIn = async ({ email, password }) => {
 
   passwordHelper.check(password, user.password);
 
-  const token = jwt.createToken(email);
+  const token = jwt.createToken(user.id);
 
   return token;
 };
