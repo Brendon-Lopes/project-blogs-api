@@ -14,9 +14,9 @@ const create = async ({ displayName, email, password, image }) => {
     throw error;
   }
 
-  await User.create({ displayName, email, password: encryptedPassword, image });
+  const newUser = await User.create({ displayName, email, password: encryptedPassword, image });
 
-  const token = jwt.createToken(email);
+  const token = jwt.createToken(newUser.id);
 
   return token;
 };
