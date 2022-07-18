@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const config = require('../database/config/config');
-const { BlogPost, PostCategory, Category } = require('../database/models');
+const { BlogPost, PostCategory, Category, User } = require('../database/models');
 const httpStatusCodes = require('../helpers/httpStatusCodes');
 
 const sequelize = new Sequelize(config.development);
@@ -36,7 +36,6 @@ const create = async ({ userId, title, content, categoryIds }) => {
     return newPost;
   } catch ({ message }) {
     await t.rollback();
-    console.log('TRANSACTION ERROR: ', message);
 
     const error = new Error('"categoryIds" not found');
     error.status = httpStatusCodes.BAD_REQUEST;
@@ -44,6 +43,18 @@ const create = async ({ userId, title, content, categoryIds }) => {
   }
 };
 
+const getAll = async () => {
+  const posts = await BlogPost.findAll({
+    include: [
+      { model: Category, as: 'categories' },
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    ],
+  });
+
+  return posts;
+};
+
 module.exports = {
   create,
+  getAll,
 };
