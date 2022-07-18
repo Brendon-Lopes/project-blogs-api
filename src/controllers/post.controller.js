@@ -42,8 +42,26 @@ const getById = async (req, res) => {
   }
 };
 
+const updateById = async (req, res) => {
+  const { userId: tokenId } = req.data;
+  const { id: postId } = req.params;
+  const { title, content } = req.body;
+
+  try {
+    const data = { postId, tokenId, title, content };
+    const editPost = await post.updateById(data);
+
+    return res.status(httpStatusCodes.OK).json(editPost);
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  updateById,
 };
