@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.use(middleware.validateToken);
 router.post('/', middleware.validateNewPost, post.create);
+router.get('/', post.getAll);
 
 module.exports = router;
