@@ -4,6 +4,7 @@ const validateUserInfo = require('./userInfo.middleware');
 const validateToken = require('./auth.middleware');
 const validateCategoryInfo = require('./categoryInfo.middleware');
 const validateNewPost = require('./postInfo.middleware');
+const editPostInfo = require('./editPostInfo.middleware');
 
 module.exports = {
   errorHandler,
@@ -12,4 +13,5 @@ module.exports = {
   validateToken,
   validateCategoryInfo,
   validateNewPost,
+  editPostInfo,
 };
