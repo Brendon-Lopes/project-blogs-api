@@ -16,6 +16,19 @@ const create = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  try {
+    const posts = await post.getAll();
+
+    return res.status(httpStatusCodes.OK).json(posts);
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
+  getAll,
 };
