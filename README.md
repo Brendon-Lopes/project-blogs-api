@@ -5,10 +5,12 @@ para melhor fixação, e também para introduzir a utilização de um ORM (Seque
 
 Todas os usuários cadastrados têm suas senhas criptografadas utilizando a biblioteca BCrypt, e a validação de login é feita utilizando a biblioteca JWT.
 
+Validações utilizadas nos middlewares feitas com a biblioteca JOI.
+
 <hr></hr>
 
 ## 🛠 Habilidades
-Node.js, MySQL, Arquitetura MSC, Sequelize, BCrypt, JWT...
+Node.js, MySQL, Arquitetura MSC, JOI, Sequelize, BCrypt, JWT...
 
 <hr></hr>
 
