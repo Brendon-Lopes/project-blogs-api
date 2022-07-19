@@ -39,8 +39,23 @@ const getById = async (req, res) => {
   }
 };
 
+const destroy = async (req, res) => {
+  const { userId } = req.data;
+
+  try {
+    await user.destroy(userId);
+
+    return res.status(httpStatusCodes.NO_CONTENT).send();
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  destroy,
 };
