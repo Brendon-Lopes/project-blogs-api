@@ -71,15 +71,18 @@ const getById = async (id) => {
   return post;
 };
 
-const updateById = async ({ postId, tokenId, title, content }) => {
+const isUserAuthorized = async ({ postId, tokenId }) => {
   const post = await BlogPost.findByPk(postId);
 
   if (tokenId !== post.userId) {
-    console.log(tokenId, post.userId);
     const error = new Error('Unauthorized user');
     error.status = 401;
     throw error;
   }
+};
+
+const updateById = async ({ postId, tokenId, title, content }) => {
+  isUserAuthorized({ postId, tokenId });
 
   await BlogPost.update(
     { title, content },
@@ -91,9 +94,32 @@ const updateById = async ({ postId, tokenId, title, content }) => {
   return editedPost;
 };
 
+const doesPostExist = async (id) => {
+  const post = await BlogPost.findByPk(id);
+
+  if (post === null) {
+    const error = new Error('Post does not exist');
+    error.status = 404;
+    throw error;
+  }
+};
+
+const destroy = async ({ postId, tokenId }) => {
+  await doesPostExist(postId);
+
+  await isUserAuthorized({ postId, tokenId });
+
+  await BlogPost.destroy({
+    where: {
+      id: postId,
+    },
+  });
+};
+
 module.exports = {
   create,
   getAll,
   getById,
   updateById,
+  destroy,
 };
