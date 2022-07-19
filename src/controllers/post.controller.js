@@ -59,9 +59,25 @@ const updateById = async (req, res) => {
   }
 };
 
+const destroy = async (req, res) => {
+  const { id: postId } = req.params;
+  const { userId: tokenId } = req.data;
+
+  try {
+    await post.destroy({ postId, tokenId });
+
+    return res.status(httpStatusCodes.NO_CONTENT).send();
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getById,
   updateById,
+  destroy,
 };
