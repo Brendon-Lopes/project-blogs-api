@@ -28,7 +28,7 @@ Um exemplo já está disponível no arquivo `.env.example`, bastando renomear pa
 
 - `npm start` para criar o banco de dados, usar os migrates pelo Sequelize e iniciar a aplicação.
 
-- Utilizar alguma Plataforma de API para utilizar os endpoints. Exemplos: Postman, Insmonia, Thunder Client...
+- Utilizar alguma Plataforma de API para utilizar os endpoints. Exemplos: Postman, Insomnia, Thunder Client...
 
 <hr></hr>
 
