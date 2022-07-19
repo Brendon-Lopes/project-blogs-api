@@ -38,7 +38,7 @@ Um exemplo já está disponível no arquivo `.env.example`, bastando renomear pa
 
 ![Diagrama de relacionamentos das tabelas](tabelas-blogs-api.png)
 
-<i> Disponibilizado pela Trybe </i>
+<i> Imagem disponibilizada pela Trybe </i>
 
 <hr></hr>
 
