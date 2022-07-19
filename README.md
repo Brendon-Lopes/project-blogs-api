@@ -58,6 +58,8 @@ Um exemplo já está disponível no arquivo `.env.example`, bastando renomear pa
 - DELETE `/user/me` que apago o usuário logado do banco de dados.
 - GET `/post/search?q=query` que pesquisa o termo passado na URL (substituindo a palavra query) nos títulos e/ou conteúdo dos posts cadastrados no banco de dados.
 
+<hr></hr>
+
 ## Considerações finais
 
 Utilizar um ORM foi mais difícil do que eu esperava, é uma curva de aprendizado um pouco difícil no começo, mas assim que se pega o jeito facilita e muito a vida. Nesse projeto pude testar bastante várias formas de fazer queries utilizando Sequelize (JOIN, WHERE, LIKE, UPDATE, DELETE e etc.). E a cada requisito foi ficando mais rápido e mais fácil. Foi também uma primeira experiência para usar validações usando JSON Web Token, e criptografar senhas usando BCrypt. Muitos aprendizados pra um projeto!
