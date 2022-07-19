@@ -1,7 +1,6 @@
 # Projeto Blog's API
 
-Um projeto feito para treinar a criação de API's, utilizando a arquitetura MSC
-para melhor fixação, e também para introduzir a utilização de um ORM (Sequelize).
+Um projeto feito para treinar a criação de API's. Um CRUD de posts, utilizando a arquitetura MSC, e também para introduzir a utilização de um ORM (Sequelize). Seguindo os princípios REST.
 
 Todas os usuários cadastrados têm suas senhas criptografadas utilizando a biblioteca BCrypt, e a validação de login é feita utilizando a biblioteca JWT.
 
