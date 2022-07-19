@@ -82,7 +82,7 @@ const isUserAuthorized = async ({ postId, tokenId }) => {
 };
 
 const updateById = async ({ postId, tokenId, title, content }) => {
-  isUserAuthorized({ postId, tokenId });
+  await isUserAuthorized({ postId, tokenId });
 
   await BlogPost.update(
     { title, content },
