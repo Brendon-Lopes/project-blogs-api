@@ -74,10 +74,25 @@ const destroy = async (req, res) => {
   }
 };
 
+const getByContent = async (req, res) => {
+  const { q } = req.query;
+
+  try {
+    const posts = await post.getByContent(q);
+
+    return res.status(httpStatusCodes.OK).json(posts);
+  } catch ({ status, message }) {
+    return res
+      .status(status || httpStatusCodes.INTERNAL_SERVER)
+      .json({ message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getById,
   updateById,
   destroy,
+  getByContent,
 };
