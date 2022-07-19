@@ -9,5 +9,6 @@ router.post('/', middleware.validateNewPost, post.create);
 router.get('/', post.getAll);
 router.get('/:id', post.getById);
 router.put('/:id', middleware.editPostInfo, post.updateById);
+router.delete('/:id', post.destroy);
 
 module.exports = router;
