@@ -30,4 +30,13 @@ module.exports = {
   test: {
     ...options,
   },
+  production: {
+    ...options,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  },
 };
