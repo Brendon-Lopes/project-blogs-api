@@ -32,6 +32,7 @@ module.exports = {
   },
   production: {
     ...options,
+    database: process.env.MYSQL_DB_NAME,
     host: process.env.MYSQL_HOST,
     dialectOptions: {
       ssl: {
