@@ -27,9 +27,13 @@ Um exemplo já está disponível no arquivo `.env.example`, bastando renomear pa
 
 - Já existe um arquivo `docker-compose.yml` (Disponibilizado pela Trybe). Bastando usar o comando `docker-compose up` para rodar o MySQL e o Node pelo Docker.
 
-- `npm start` para criar o banco de dados, usar os migrates pelo Sequelize e iniciar a aplicação.
+- `npx sequelize-cli db:create` pra criar o banco de dados
+
+- `npm start` para usar os migrates pelo Sequelize e iniciar a aplicação.
 
 - Utilizar alguma Plataforma de API para utilizar os endpoints. Exemplos: Postman, Insomnia, Thunder Client...
+
+Obs.: (É necessário primeiro fazer o Login ou criar um usuário para receber o token de validação, e assim passar o mesmo no header "Authorization").
 
 <hr></hr>
 
