@@ -17,6 +17,10 @@ const options = {
   password: process.env.MYSQL_PASSWORD || '1234',
   dialect: process.env.DB_DIALECT,
   dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
     timezone: 'Z',
   },
   // logging: process.env.DEBUG !== 'false',
