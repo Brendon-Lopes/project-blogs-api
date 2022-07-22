@@ -13,7 +13,7 @@ const verifyIfCategoriesExist = async (categories) => {
     },
   });
 
-  if (categories.length === count) return;
+  if (categories.length <= count) return;
 
   throw new Error();
 };
