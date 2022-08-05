@@ -61,7 +61,7 @@ Obs.: (É necessário primeiro fazer o Login ou criar um usuário para receber o
 - GET `/post/:id` que retorna um post pelo id.
 - PUT `/post/:id` que edita um post por id.
 - DELETE `/post/:id` que deleta um post por id.
-- DELETE `/user/me` que apago o usuário logado do banco de dados.
+- DELETE `/user/me` que apaga o usuário logado do banco de dados.
 - GET `/post/search?q=query` que pesquisa o termo passado na URL (substituindo a palavra query) nos títulos e/ou conteúdo dos posts cadastrados no banco de dados.
 
 <hr></hr>
