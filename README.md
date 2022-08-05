@@ -1,69 +1,71 @@
-# Projeto Blog's API
+# Select Language: English, [Português](./README-PT.md)
 
-Um projeto feito para treinar a criação de API's. Um CRUD de posts, utilizando a arquitetura MSC, e também para introduzir a utilização de um ORM (Sequelize). Seguindo os princípios REST.
+# Project Blog's API
 
-Todas os usuários cadastrados têm suas senhas criptografadas utilizando a biblioteca BCrypt, e a validação de login é feita utilizando a biblioteca JWT.
+A project made to practice creating RESTful API's. A CRUD for blog posts, using MSC (Model, Service, Controller) architecture. Also to practice using an ORM (Sequelize).
 
-Validações utilizadas nos middlewares feitas com a biblioteca JOI.
+All registered users have their passwords encrypted using the BCrypt library, and the login validation is done using the JWT library.
 
-<hr></hr>
-
-## 🛠 Habilidades
-Node.js, MySQL, Arquitetura MSC, JOI, Sequelize, BCrypt, JWT...
+The validations used in the middlewares are made with the JOI library.
 
 <hr></hr>
 
-## Variáveis de Ambiente
-
-Para rodar esse projeto, você vai precisar adicionar variáveis de ambiente no seu .env
-
-Um exemplo já está disponível no arquivo `.env.example`, bastando renomear para `.env` e escolher o valor das variáveis.
+## 🛠 Tools / skills
+Node.js, MySQL, MSC architecture, JOI, Sequelize, BCrypt, JWT...
 
 <hr></hr>
 
-## Utilização
+## Environment Variables
 
-- Para clonar o projeto: `git clone git@github.com:Brendon-Lopes/project-blogs-api.git`.
+To run this project you will need to add environment variables in your .env
 
-- Já existe um arquivo `docker-compose.yml` (Disponibilizado pela Trybe). Bastando usar o comando `docker-compose up` para rodar o MySQL e o Node pelo Docker.
-
-- `npx sequelize-cli db:create` pra criar o banco de dados
-
-- `npm start` para usar os migrates pelo Sequelize e iniciar a aplicação.
-
-- Utilizar alguma Plataforma de API para utilizar os endpoints. Exemplos: Postman, Insomnia, Thunder Client...
-
-Obs.: (É necessário primeiro fazer o Login ou criar um usuário para receber o token de validação, e assim passar o mesmo no header "Authorization").
+A template is already available in the `.env.example` file, you only need to rename it to `.env` and change the variables values.
 
 <hr></hr>
 
-## Diagramas
+## Usage
 
-![Diagrama de relacionamentos das tabelas](tabelas-blogs-api.png)
+- To clone the repository: `git clone git@github.com:Brendon-Lopes/project-blogs-api.git`.
 
-<i> Imagem disponibilizada pela Trybe </i>
+- There is a `docker-compose.yml` file (Made available by Trybe). Just run `docker-compose up` to run MySQL and Node with Docker.
+
+- `npx sequelize-cli db:create` to create the database.
+
+- `npm start` to run the migrations with sequelize and start the application.
+
+- Use a platform to request from the API's endpoints (e.g., Postman, Insomnia, Thunder Client...).
+
+Note: It's necessary to first create an user/login to receive a validation token, that needs to be passed in the "Authorization" header.
+
+<hr></hr>
+
+## Diagrams
+
+![Tables relations diagram](tabelas-blogs-api.png)
+
+<i> Image made available by Trybe </i>
 
 <hr></hr>
 
 ## Endpoints
 
-- POST `/login` que deve receber no body os campos `email` e `password`.
-- POST `/user` que deve receber no body os campos `displayName`, `email`, `password` e `image`.
-- `A partir desse ponto todos os próximos endpoints requerem validação por token que foi gerado no login (e deve ser passado no header Authorization)`
-- GET `/user` que retorna todos os usários cadastrados.
-- GET `/user/:id` que retorna o usuário pertencente ao id passado por parâmetro.
-- POST `/categories` que deve receber no body o campo `name` para o cadastro de uma nova categoria.
-- GET `/categories` que retorna todas as categorias do banco de dados.
-- POST `/post` que insere um novo post no banco de dados. Deve receber no body os campos `title`, `content` e um array `categoryIds` (contendo ids de categorias já cadastradas no banco de dados).
-- GET `/post` que retorna todos os posts do banco de dados.
-- GET `/post/:id` que retorna um post pelo id.
-- PUT `/post/:id` que edita um post por id.
-- DELETE `/post/:id` que deleta um post por id.
-- DELETE `/user/me` que apago o usuário logado do banco de dados.
-- GET `/post/search?q=query` que pesquisa o termo passado na URL (substituindo a palavra query) nos títulos e/ou conteúdo dos posts cadastrados no banco de dados.
+- POST `/login` that needs the fields `email` and `password` inside the request body.
+- POST `/user` that needs the fields `displayName`, `email`, `password` e `image` inside the request body.
+- `From now on, every endpoint below needs validation by token (that was generated at user creation/login. And must be passed into the Authorization header)`.
+- GET `/user` returns all the registered users.
+- GET `/user/:id` returns the user that belongs to the id passed by parameter.
+- POST `/categories` that needs the field `name` inside the request body, to create a category.
+- GET `/categories` return all categories from the database.
+- POST `/post` creates a new post. Must receive into the body the fields `title`, `content` and the array `categoryIds` (containing IDs of categories already existent on database).
+- GET `/post` returns all the posts from the database.
+- GET `/post/:id` returns a post by id.
+- PUT `/post/:id` edits a post by id.
+- DELETE `/post/:id` deletes a post by id.
+- DELETE `/user/me` deletes the current user from the database.
+- GET `/post/search?q=query` searches by the term passed in the URL (replacing the word "query") from the title and/or content from the posts in the database.
 
 <hr></hr>
 
-## Considerações finais
+## Final considerations.
 
-Utilizar um ORM foi mais difícil do que eu esperava, é uma curva de aprendizado um pouco difícil no começo, mas assim que se pega o jeito facilita e muito a vida. Nesse projeto pude testar bastante várias formas de fazer queries utilizando Sequelize (JOIN, WHERE, LIKE, UPDATE, DELETE e etc.). E a cada requisito foi ficando mais rápido e mais fácil. Foi também uma primeira experiência para usar validações usando JSON Web Token, e criptografar senhas usando BCrypt. Muitos aprendizados pra um projeto!
+Using an ORM was harder than I expected, it's a steep learning curve at the beginning, but once you get the hang of it, it makes your life a lot easier, and makes the code more concise. In this project I had the chance to practice a lot of queries using Sequelize (JOIN, WHERE, LIKE, UPDATE, DELETE, etc.). And with each step it became easier and easier. It was also a first experience to use validations with JSON Web Token, and encrypting passwords with BCrypt. Many things learned from one project!
