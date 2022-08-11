@@ -27,6 +27,8 @@ A template is already available in the `.env.example` file, you only need to ren
 
 - To clone the repository: `git clone git@github.com:Brendon-Lopes/project-blogs-api.git`.
 
+- `npm install` to install the dependencies.
+
 - There is a `docker-compose.yml` file (Made available by Trybe). Just run `docker-compose up` to run MySQL and Node with Docker.
 
 - `npx sequelize-cli db:create` to create the database.
