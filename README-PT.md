@@ -27,6 +27,8 @@ Um exemplo já está disponível no arquivo `.env.example`, bastando renomear pa
 
 - Para clonar o projeto: `git clone git@github.com:Brendon-Lopes/project-blogs-api.git`.
 
+- `npm install` pra instalar as dependências.
+
 - Já existe um arquivo `docker-compose.yml` (Disponibilizado pela Trybe). Bastando usar o comando `docker-compose up` para rodar o MySQL e o Node pelo Docker.
 
 - `npx sequelize-cli db:create` pra criar o banco de dados
